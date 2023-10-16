@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AchievementDataXml>
+    <Id>Retro</Id>
+    <Name>Retro</Name>
+    <Desc>Play a game on an Arcade Machine.</Desc>
+    <Icon>Retro</Icon>
+    <Background>Default</Background>
+</AchievementDataXml>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AchievementDataXml>
+    <Id>ExampleAchievement2</Id>
+    <Name>Example Achievement 2</Name>
+    <Desc>Place a locked chest.</Desc>
+    <Icon>ExampleAchievement2</Icon>
+    <Background>Default</Background>
+</AchievementDataXml>

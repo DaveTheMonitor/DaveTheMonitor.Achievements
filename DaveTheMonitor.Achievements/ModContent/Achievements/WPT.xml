@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AchievementDataXml>
+    <Id>WPT</Id>
+    <Name>Wireless Power Transfer</Name>
+    <Desc>Place 1 Wifi Transmitter and Receiver.</Desc>
+    <Icon>WPT</Icon>
+    <Background>Default</Background>
+</AchievementDataXml>

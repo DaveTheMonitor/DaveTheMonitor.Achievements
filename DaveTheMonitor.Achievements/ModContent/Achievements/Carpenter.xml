@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AchievementDataXml>
+    <Id>Carpenter</Id>
+    <Name>Carpenter</Name>
+    <Desc>Craft a Workbench.</Desc>
+    <Icon>Carpenter</Icon>
+    <Background>Default</Background>
+</AchievementDataXml>

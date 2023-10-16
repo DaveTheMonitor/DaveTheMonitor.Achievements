@@ -1,0 +1,12 @@
+<ModInfoXML>
+  <ID>DaveTheMonitor.Achievements</ID>
+  <Name>Achievements</Name>
+  <Desc>Adds achievements and allows for other mods to add their own achievements.</Desc>
+  <Author>Dave The Monitor</Author>
+  <Icon>Icon.png</Icon>
+  <Version>
+    <Major>0</Major>
+    <Minor>1</Minor>
+    <Patch>0</Patch>
+  </Version>
+</ModInfoXML>

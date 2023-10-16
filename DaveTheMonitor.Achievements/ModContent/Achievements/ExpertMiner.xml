@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AchievementDataXml>
+    <Id>ExpertMiner</Id>
+    <Name>Expert Miner</Name>
+    <Desc>Craft a Titanium Pickaxe.</Desc>
+    <Icon>ExpertMiner</Icon>
+    <Background>Gold</Background>
+</AchievementDataXml>

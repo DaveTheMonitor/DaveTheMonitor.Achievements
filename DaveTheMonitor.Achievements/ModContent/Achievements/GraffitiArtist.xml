@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AchievementDataXml>
+    <Id>GraffitiArtist</Id>
+    <Name>Graffiti Artist</Name>
+    <Desc>Use a Decal Applicator on a block.</Desc>
+    <Icon>GraffitiArtist</Icon>
+    <Background>Default</Background>
+</AchievementDataXml>

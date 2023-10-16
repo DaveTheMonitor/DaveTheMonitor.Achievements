@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AchievementDataXml>
+    <Id>ExampleAchievement1</Id>
+    <Name>Example Achievement 1</Name>
+    <Desc>Chop 10 Wood blocks.</Desc>
+    <Icon>ExampleAchievement1</Icon>
+    <Background>Default</Background>
+</AchievementDataXml>

@@ -1,0 +1,12 @@
+<ModInfoXML>
+  <ID>DaveTheMonitor.ExampleAchievements</ID>
+  <Name>Example Achievements</Name>
+  <Desc>Example mod showing Achievements mod compatibility.</Desc>
+  <Author>Dave The Monitor</Author>
+  <Icon>Icon.png</Icon>
+  <Version>
+    <Major>0</Major>
+    <Minor>1</Minor>
+    <Patch>0</Patch>
+  </Version>
+</ModInfoXML>

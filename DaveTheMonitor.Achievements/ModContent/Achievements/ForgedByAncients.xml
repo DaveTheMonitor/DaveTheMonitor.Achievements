@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AchievementDataXml>
+    <Id>ForgedByAncients</Id>
+    <Name>Forged By Ancients</Name>
+    <Desc>Find a rare item hidden underground.</Desc>
+    <Icon>ForgedByAncients</Icon>
+    <Background>Gold</Background>
+</AchievementDataXml>

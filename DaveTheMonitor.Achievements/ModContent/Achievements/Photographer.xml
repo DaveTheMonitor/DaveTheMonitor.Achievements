@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AchievementDataXml>
+    <Id>Photographer</Id>
+    <Name>Photographer</Name>
+    <Desc>Obtain a Camera.</Desc>
+    <Icon>Photographer</Icon>
+    <Background>Default</Background>
+</AchievementDataXml>
