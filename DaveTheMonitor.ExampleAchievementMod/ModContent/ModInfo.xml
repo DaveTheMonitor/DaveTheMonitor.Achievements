@@ -3,6 +3,7 @@
   <Name>Example Achievements</Name>
   <Desc>Example mod showing Achievements mod compatibility.</Desc>
   <Author>Dave The Monitor</Author>
+  <Website>https://github.com/DaveTheMonitor/DaveTheMonitor.Achievements</Website>
   <Icon>Icon.png</Icon>
   <Version>
     <Major>0</Major>

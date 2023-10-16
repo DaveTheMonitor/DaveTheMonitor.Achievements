@@ -3,6 +3,7 @@
   <Name>Achievements</Name>
   <Desc>Adds achievements and allows for other mods to add their own achievements.</Desc>
   <Author>Dave The Monitor</Author>
+  <Website>https://github.com/DaveTheMonitor/DaveTheMonitor.Achievements</Website>
   <Icon>Icon.png</Icon>
   <Version>
     <Major>0</Major>
