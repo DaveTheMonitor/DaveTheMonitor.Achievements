@@ -115,10 +115,10 @@ namespace DaveTheMonitor.Achievements.Screens
                 else
                 {
                     _window.Colors = _disabledColors;
-                    _bgWindow.Texture.TintColor = Color.White * 0.6f;
+                    _bgWindow.Texture.TintColor = Color.White * 0.8f;
                     _bgWindow.Texture.TintColor.A = 255;
                     _bgWindow.RenderProfile = _lockedBgRenderProfile;
-                    _iconWindow.Texture.TintColor = Color.White * 0.6f;
+                    _iconWindow.Texture.TintColor = Color.White * 0.8f;
                     _iconWindow.Texture.TintColor.A = 255;
                     _iconWindow.RenderProfile = _lockedIconRenderProfile;
                 }
