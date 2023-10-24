@@ -400,12 +400,7 @@ namespace DaveTheMonitor.Achievements
         {
             foreach (InventoryItem item in player.Inventory.Items)
             {
-                if (item.ItemID == Item.BattleAxe ||
-                    item.ItemID == Item.ElvenBow ||
-                    item.ItemID == Item.AmuletOfFlight ||
-                    item.ItemID == Item.WaterTalisman ||
-                    item.ItemID == Item.ShieldBadge ||
-                    item.ItemID == Item.TenLeagueBoots)
+                if (Globals1.ItemTypeData[(int)item.ItemID].Rarity == ItemRarityType.Rare)
                 {
                     return true;
                 }
