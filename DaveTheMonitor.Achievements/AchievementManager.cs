@@ -236,7 +236,7 @@ namespace DaveTheMonitor.Achievements
 
                 if (display)
                 {
-                    _unlockAnim.Add(new AchievementAnimData(achievement, 8, 1));
+                    _unlockAnim.Add(new AchievementAnimData(achievement, 8, 0.5f, 0.15f));
 
                     // We don't play the sound unless an achievement hasn't
                     // been unlocked for some time so the sound doesn't play
@@ -337,17 +337,18 @@ namespace DaveTheMonitor.Achievements
         internal void Draw(Viewport vp)
         {
             SpriteBatchSafe spriteBatch = CoreGlobals.SpriteBatch;
-            //if (_iconTexture != null)
+            // This draws the entire icon/bg texture atlas
+            //if (IconTexture != null)
             //{
             //    spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp, DepthStencilState.None, RasterizerState.CullNone);
-            //    spriteBatch.Draw(_iconTexture, new Vector2(0, 0), Color.White);
+            //    spriteBatch.Draw(IconTexture, new Vector2(0, 0), Color.White);
             //    spriteBatch.End();
             //}
 
-            //if (_backgroundTexture != null)
+            //if (BackgroundTexture != null)
             //{
             //    spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.None, RasterizerState.CullNone);
-            //    spriteBatch.Draw(_backgroundTexture, new Vector2(0, 128), Color.White);
+            //    spriteBatch.Draw(BackgroundTexture, new Vector2(0, IconTexture.Height + 64), Color.White);
             //    spriteBatch.End();
             //}
 
@@ -362,12 +363,25 @@ namespace DaveTheMonitor.Achievements
             int w = 384;
             int h = 64 + 16;
             int x = vp.Width - w - screenPadding;
-            int y = (count * (h + margin)) + screenPadding;
+            int targetY = (count * (h + margin)) + screenPadding;
             spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.NonPremultiplied, SamplerState.PointClamp, DepthStencilState.None, RasterizerState.CullNone);
             for (int i = count - 1; i >= 0; i--)
             {
                 AchievementAnimData anim = _unlockAnim[i];
-                y -= h + margin;
+                targetY -= h + margin;
+
+                if (anim.TargetY > targetY)
+                {
+                    anim.TargetY = targetY;
+                    anim.CurrentY = Math.Max(targetY, anim.CurrentY);
+                }
+
+                float boxY = anim.CurrentY;
+                if (boxY > targetY)
+                {
+                    boxY = Math.Max(boxY - ((h / anim.YTransition) * Services.ElapsedTime), targetY);
+                    anim.CurrentY = boxY;
+                }
 
                 float transparency = 1;
                 if (anim.CurrentTime < anim.Transition)
@@ -376,10 +390,10 @@ namespace DaveTheMonitor.Achievements
                 }
                 else if (anim.CurrentTime > anim.Duration - anim.Transition)
                 {
-                    transparency = MathHelper.Lerp(1, 0, (1 - (anim.Duration - anim.CurrentTime)) / anim.Transition);
+                    transparency = MathHelper.Lerp(1, 0, 1 - ((anim.Duration - anim.CurrentTime) / anim.Transition));
                 }
 
-                DrawAchievementBox(spriteBatch, anim.Achievement, x, y, w, h, transparency);
+                DrawAchievementBox(spriteBatch, anim.Achievement, x, (int)boxY, w, h, transparency);
 
                 anim.CurrentTime += Services.ElapsedTime;
                 if (anim.CurrentTime >= anim.Duration)
