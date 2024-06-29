@@ -20,9 +20,9 @@ namespace DaveTheMonitor.Achievements
     public sealed class AchievementsPlugin : ITMPlugin
     {
         /// <summary>
-        /// The current mod version.
+        /// The current mod save version.
         /// </summary>
-        public static int Version => 1;
+        public static int SaveVersion => 1;
         /// <summary>
         /// The active instance of this plugin.
         /// </summary>
@@ -569,7 +569,7 @@ namespace DaveTheMonitor.Achievements
                 using (BinaryWriter writer = new BinaryWriter(stream))
                 {
                     writer.Write(Globals1.SaveVersion);
-                    writer.Write(Version);
+                    writer.Write(SaveVersion);
                     AchievementManager.WriteUnlockState(writer);
                 }
             }
@@ -579,7 +579,7 @@ namespace DaveTheMonitor.Achievements
                 using (BinaryWriter writer = new BinaryWriter(stream))
                 {
                     writer.Write(Globals1.SaveVersion);
-                    writer.Write(Version);
+                    writer.Write(SaveVersion);
                     WriteState(writer);
                 }
             }

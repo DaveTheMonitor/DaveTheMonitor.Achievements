@@ -83,7 +83,7 @@ namespace DaveTheMonitor.Achievements
         /// <summary>
         /// A list of all active achievements.
         /// </summary>
-        public IReadOnlyList<Achievement> Achievements => _achievements;
+        public IEnumerable<Achievement> Achievements => _achievements;
         /// <summary>
         /// The texture used for drawing achievement icons. Use this with GetIcon if you need to draw achievement icons.
         /// </summary>
@@ -215,10 +215,10 @@ namespace DaveTheMonitor.Achievements
                 int index = _lockedAchievements.IndexOf(achievement);
 
                 // We decrement the index when the unlocked achievement
-                // is before it the loop index to prevent testing the
-                // unlock condition for an achievement twice in a loop,
-                // and an out of bonuds exception if the achievement
-                // is unlocked on the same frame the loop finishes
+                // is before the current index of the loop index to
+                // prevent testing the unlock condition for an achievement
+                // twice in a loop, and an out of bounds exception if the
+                // achievement is unlocked on the same frame the loop finishes
                 if (index <= _index)
                 {
                     _index--;
