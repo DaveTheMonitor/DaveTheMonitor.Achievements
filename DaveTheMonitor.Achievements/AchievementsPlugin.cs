@@ -10,6 +10,7 @@ using StudioForge.TotalMiner.API;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
 
 namespace DaveTheMonitor.Achievements
 {
@@ -60,7 +61,7 @@ namespace DaveTheMonitor.Achievements
         public Func<ITMPlayer, Item, bool> HasItemCraftedDelegate { get; private set; }
         private Action[] _hotReloadEvents;
         private HashSet<ulong> _playerEvents;
-        private ITMGame _game;
+        internal ITMGame _game;
         private Item[] _chefItems;
         private HashSet<Item> _chefItemsHashSet;
         private HashSet<Item> _jewelerItems;
@@ -123,6 +124,7 @@ namespace DaveTheMonitor.Achievements
             PatchHelper.Patch(typeof(HotLoadPatch));
             PatchHelper.Patch(typeof(BookWritePatch));
             PatchHelper.Patch(typeof(ArcadeMachinePatch));
+            CheckForTeleportPatch.TargetMethod();
             PatchHelper.Patch(typeof(CheckForTeleportPatch));
             CraftPatch.Patch(PatchHelper._harmony);
             Instance = this;
@@ -332,7 +334,7 @@ namespace DaveTheMonitor.Achievements
             }
         }
 
-        private void DestroySpiderEgg(Block block, byte aux, GlobalPoint3D p, ITMHand hand)
+        private void DestroySpiderEgg(Block block, ushort aux, GlobalPoint3D p, ITMHand hand)
         {
             if (!hand.Owner.IsPlayer)
             {
@@ -869,5 +871,10 @@ namespace DaveTheMonitor.Achievements
         }
 
         #endregion
+
+        public AchievementsPlugin(List<Assembly> loadedAssemblies)
+        {
+
+        }
     }
 }

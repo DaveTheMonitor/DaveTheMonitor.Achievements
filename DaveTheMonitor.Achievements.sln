@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaveTheMonitor.Achievements", "DaveTheMonitor.Achievements\DaveTheMonitor.Achievements.csproj", "{699A04B3-2E41-4E1F-BB88-2495B8E47449}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DaveTheMonitor.Achievements", "DaveTheMonitor.Achievements\DaveTheMonitor.Achievements.csproj", "{699A04B3-2E41-4E1F-BB88-2495B8E47449}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaveTheMonitor.ExampleAchievementMod", "DaveTheMonitor.ExampleAchievementMod\DaveTheMonitor.ExampleAchievementMod.csproj", "{F77228C1-85EF-4FAF-A7A5-AC13CE0957B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DaveTheMonitor.ExampleAchievementMod", "DaveTheMonitor.ExampleAchievementMod\DaveTheMonitor.ExampleAchievementMod.csproj", "{F77228C1-85EF-4FAF-A7A5-AC13CE0957B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaveTheMonitor.Achievements.Loader", "DaveTheMonitor.Achievements.Loader\DaveTheMonitor.Achievements.Loader.csproj", "{4D98E9E0-9706-4478-BF9C-F3F2DAD04FA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AchievementsBuilder", "AchievementsBuilder\AchievementsBuilder.csproj", "{2BBB7264-5A5F-4F6A-9D8C-0A36A7A36CEE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,12 @@ Global
 		{F77228C1-85EF-4FAF-A7A5-AC13CE0957B3}.Debug|x64.Build.0 = Debug|x64
 		{F77228C1-85EF-4FAF-A7A5-AC13CE0957B3}.Release|x64.ActiveCfg = Release|x64
 		{F77228C1-85EF-4FAF-A7A5-AC13CE0957B3}.Release|x64.Build.0 = Release|x64
+		{4D98E9E0-9706-4478-BF9C-F3F2DAD04FA9}.Debug|x64.ActiveCfg = Debug|x64
+		{4D98E9E0-9706-4478-BF9C-F3F2DAD04FA9}.Debug|x64.Build.0 = Debug|x64
+		{4D98E9E0-9706-4478-BF9C-F3F2DAD04FA9}.Release|x64.ActiveCfg = Release|x64
+		{2BBB7264-5A5F-4F6A-9D8C-0A36A7A36CEE}.Debug|x64.ActiveCfg = Debug|x64
+		{2BBB7264-5A5F-4F6A-9D8C-0A36A7A36CEE}.Debug|x64.Build.0 = Debug|x64
+		{2BBB7264-5A5F-4F6A-9D8C-0A36A7A36CEE}.Release|x64.ActiveCfg = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

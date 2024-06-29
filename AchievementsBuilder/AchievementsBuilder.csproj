@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Platforms>x64</Platforms>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DaveTheMonitor.Achievements.Loader\DaveTheMonitor.Achievements.Loader.csproj" />
+    <ProjectReference Include="..\DaveTheMonitor.Achievements\DaveTheMonitor.Achievements.csproj" />
+  </ItemGroup>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy &quot;$(TargetDir)DaveTheMonitor.Achievements.dll&quot; &quot;$(TargetDir)Vanilla\&quot; /y&#xD;&#xA;" />
+  </Target>
+</Project>

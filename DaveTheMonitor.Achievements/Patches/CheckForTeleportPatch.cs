@@ -24,7 +24,8 @@ namespace DaveTheMonitor.Achievements.Patches
             if (index != -1)
             {
                 ops.Insert(index++, new CodeInstruction(OpCodes.Ldarg_0));
-                ops.Insert(index++, new CodeInstruction(OpCodes.Call, typeof(CheckForTeleportPatch).GetMethod(nameof(PreTeleport), BindingFlags.NonPublic | BindingFlags.Static)));
+                MethodInfo m = typeof(CheckForTeleportPatch).GetMethod(nameof(PreTeleport), BindingFlags.NonPublic | BindingFlags.Static);
+                ops.Insert(index++, new CodeInstruction(OpCodes.Call, m));
             }
 
             return ops;
@@ -32,6 +33,7 @@ namespace DaveTheMonitor.Achievements.Patches
 
         private static void PreTeleport(object actor)
         {
+            AchievementsPlugin.Instance._game.AddNotification("teleport patch");
             ITMActor self = (ITMActor)actor;
             if (self.IsPlayer)
             {

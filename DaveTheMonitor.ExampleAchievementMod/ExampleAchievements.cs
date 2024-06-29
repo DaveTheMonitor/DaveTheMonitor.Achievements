@@ -30,25 +30,25 @@ namespace DaveTheMonitor.ExampleAchievementMod
             // If there's a delegate for a method available, it is always a property named
             // {MethodName}Delegate.
             // We can get delegates for:
-            // - object AchievementsPlugin.GetAchievement(ITMMod, string)
-            // - void AchievementsPlugin.UnlockAchievement(ITMPlayer, ITMMod, string)
-            // - bool AchievementsPlugin.IsAchievementUnlocked(ITMPlayer, ITMMod, string)
-            // - bool AchievementsPlugin.IsAchievementLocked(ITMPlayer, ITMMod, string)
-            // - bool AchievementsPlugin.HasItemCrafted(ITMPlayer, Item)
-            // - int AchievementsPlugin.GetItemCrafted(ITMPlayer, Item)
+            // - object AchievementsPlugin.Achievements.GetAchievement(ITMMod, string)
+            // - void AchievementsPlugin.Achievements.UnlockAchievement(ITMPlayer, ITMMod, string)
+            // - bool AchievementsPlugin.Achievements.IsAchievementUnlocked(ITMPlayer, ITMMod, string)
+            // - bool AchievementsPlugin.Achievements.IsAchievementLocked(ITMPlayer, ITMMod, string)
+            // - bool AchievementsPlugin.Achievements.HasItemCrafted(ITMPlayer, Item)
+            // - int AchievementsPlugin.Achievements.GetItemCrafted(ITMPlayer, Item)
             // - Rectangle AchievementManager.GetIcon(string)
             // - Rectangle AchievementManager.GetBackground(string)
-            _unlockAchievement = plugin.UnlockAchievementDelegate;
+            _unlockAchievement = plugin.Achievements.UnlockAchievementDelegate;
 
             AddExampleAchievement1(plugin);
             AddExampleAchievement2(game, plugin);
             AddExampleAchievement3(plugin);
 
             // We need to remove any game/player events when the mod is
-            // unloaded/hot loaded. We can add a hot load event through the plugin.
+            // unloaded/hot loaded. We can add a hot load event through the plugin
             // We can remove events on unload by calling RemoveEvents from
-            // ITMPlugin.UnloadMod.
-            plugin.AddEventHotReload(new Action(HotReload));
+            // ITMplugin.Achievements.UnloadMod.
+            plugin.Achievements.AddEventHotReload(new Action(HotReload));
         }
 
         private void HotReload()
@@ -78,8 +78,8 @@ namespace DaveTheMonitor.ExampleAchievementMod
             // Menu is opened and the achievement is locked.
             // Note: For an actual mod we'd want to use the BlockMined event here,
             // but for this example we're using a per-update condition.
-            plugin.AddUnlockCondition(_mod, "ExampleAchievement1", new Func<ITMGame, ITMPlayer, bool>(Example1UnlockCondition));
-            plugin.AddProgressFunc(_mod, "ExampleAchievement1", new Func<ITMGame, ITMPlayer, (float, string)>(Example1Progress));
+            plugin.Achievements.AddUnlockCondition(_mod, "ExampleAchievement1", new Func<ITMGame, ITMPlayer, bool>(Example1UnlockCondition));
+            plugin.Achievements.AddProgressFunc(_mod, "ExampleAchievement1", new Func<ITMGame, ITMPlayer, (float, string)>(Example1Progress));
         }
 
         private bool Example1UnlockCondition(ITMGame game, ITMPlayer player)
@@ -145,10 +145,10 @@ namespace DaveTheMonitor.ExampleAchievementMod
         private void AddExampleAchievement3(dynamic plugin)
         {
             // ExampleAchievement3 uses a crafting based unlock. For these
-            // achievements, we want to use plugin.AssEventItemCrafted instead
-            // of ITMPlayer.Event_ItemCrafted, since that event doesn't
+            // achievements, we want to use plugin.Achievements.AddEventItemCrafted
+            // instead of ITMPlayer.Event_ItemCrafted, since that event doesn't
             // currently work properly
-            plugin.AddEventItemCrafted(new Action<ITMPlayer, Item>(ItemCrafted));
+            plugin.Achievements.AddEventItemCrafted(new Action<ITMPlayer, Item>(ItemCrafted));
         }
 
         private void ItemCrafted(ITMPlayer player, Item item)
