@@ -83,7 +83,7 @@ namespace DaveTheMonitor.Achievements.Screens
                 _progressBarColors.BackColor.A = 255;
                 _progressBarColors.BackHoverColor = _progressBarColors.BackColor;
                 _progressBarColors.BackClickColor = _progressBarColors.BackColor;
-                _progressBarColors.ForeColor = new Color(113, 240, 105);
+                _progressBarColors.ForeColor = new Color(79, 220, 80);
             }
 
             public void SetPos(int x, int y)
