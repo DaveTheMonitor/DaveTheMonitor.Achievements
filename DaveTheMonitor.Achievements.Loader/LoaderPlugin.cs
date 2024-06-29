@@ -3,7 +3,6 @@ using StudioForge.BlockWorld;
 using StudioForge.TotalMiner.API;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 

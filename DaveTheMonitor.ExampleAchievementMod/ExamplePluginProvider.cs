@@ -1,6 +1,4 @@
 ﻿using StudioForge.TotalMiner.API;
-using System.Collections.Generic;
-using System.Reflection;
 
 namespace DaveTheMonitor.ExampleAchievementMod
 {
