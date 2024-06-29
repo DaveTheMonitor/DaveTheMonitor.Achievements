@@ -10,6 +10,7 @@ using StudioForge.TotalMiner.API;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 
 namespace DaveTheMonitor.Achievements
@@ -139,24 +140,9 @@ namespace DaveTheMonitor.Achievements
             _game = game;
             AchievementManager = new AchievementManager(game);
 
-            _chefItems = GetCraftableFood().ToArray();
-            _chefItemsHashSet = new HashSet<Item>();
-            foreach (Item item in _chefItems)
-            {
-                _chefItemsHashSet.Add(item);
-            }
-            _jewelerItems = new HashSet<Item>
-            {
-                Item.RingOfBob,
-                Item.AmuletOfFury,
-                Item.NecklaceOfKnowledge,
-                Item.SpiderRing,
-                Item.PredatorAmulet,
-                Item.NecklaceOfHypocrisy,
-                Item.RingOfExemption,
-                Item.AmuletOfStarlight,
-                Item.NecklaceOfFarsight
-            };
+            _chefItems = GetCraftableFood();
+            _chefItemsHashSet = _chefItems.ToHashSet();
+            _jewelerItems = GetJewelerItems().ToHashSet();
 
             foreach (ITMMod mod in game.GetActiveMods())
             {
@@ -173,29 +159,78 @@ namespace DaveTheMonitor.Achievements
             }
         }
 
-        private List<Item> GetCraftableFood()
+        private Item[] GetCraftableFood()
         {
             // We dynamically find craftable foods for better mod compatibility
-            // This allows modded food count towards the achievement.
+            // This allows modded food to count towards the achievement.
             List<Item> list = new List<Item>();
-            HashSet<Item> blueprints = new HashSet<Item>();
+            Item[] blueprints = GetAllCraftableItems();
+
+            foreach (Item item in blueprints)
+            {
+                ItemTypeDataXML type = Globals1.ItemTypeData[(int)item];
+                if (type.SubType != ItemSubType.Edible)
+                {
+                    continue;
+                }
+
+                if (list.Contains(type.ItemID))
+                {
+                    continue;
+                }
+
+                list.Add(type.ItemID);
+            }
+
+            return list.ToArray();
+        }
+
+        private Item[] GetJewelerItems()
+        {
+            // We dynamically find craftable, equippabe jewelery items for
+            // better mod compatibility.
+            // This allows modded jewelery to count towards the achievement.
+            List<Item> list = new List<Item>();
+            Item[] blueprints = GetAllCraftableItems();
+
+            foreach (Item item in blueprints)
+            {
+                // Only enchanted jewelery should count towards this achievement.
+                if (item == Item.GoldNecklace || item == Item.GoldRing || item == Item.GoldAmulet)
+                {
+                    continue;
+                }
+
+                ItemTypeDataXML type = Globals1.ItemTypeData[(int)item];
+                if (type.Type != ItemType.Jewelry || (type.Equip != EquipIndex.Neck && type.Equip != EquipIndex.RightSide))
+                {
+                    continue;
+                }
+
+                if (list.Contains(type.ItemID))
+                {
+                    continue;
+                }
+
+                list.Add(type.ItemID);
+            }
+
+            return list.ToArray();
+        }
+
+        private Item[] GetAllCraftableItems()
+        {
+            List<Item> blueprints = new List<Item>();
             foreach (BlueprintXML bp in Globals1.BlueprintData)
             {
+                if (blueprints.Contains(bp.Result.ItemID))
+                {
+                    continue;
+                }
+
                 blueprints.Add(bp.Result.ItemID);
             }
-
-            foreach (ItemTypeDataXML type in Globals1.ItemTypeData)
-            {
-                if ((type.SubType & ItemSubType.Edible) > 0 && blueprints.Contains(type.ItemID))
-                {
-                    if (!list.Contains(type.ItemID))
-                    {
-                        list.Add(type.ItemID);
-                    }
-                }
-            }
-
-            return list;
+            return blueprints.ToArray();
         }
 
         private void AddAchievementConditions()
