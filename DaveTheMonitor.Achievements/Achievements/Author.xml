@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AchievementDataXml>
+    <Id>Author</Id>
+    <Name>Author</Name>
+    <Desc>Write in a book.</Desc>
+    <Icon>Author</Icon>
+    <Background>Default</Background>
+</AchievementDataXml>

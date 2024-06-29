@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AchievementDataXml>
+    <Id>Portals</Id>
+    <Name>Portals</Name>
+    <Desc>Use Obsidian to travel instantly.</Desc>
+    <Icon>Portals</Icon>
+    <Background>Default</Background>
+</AchievementDataXml>

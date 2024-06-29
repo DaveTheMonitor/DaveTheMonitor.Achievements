@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AchievementDataXml>
+    <Id>Jeweler</Id>
+    <Name>Jeweler</Name>
+    <Desc>Forge an enchanted piece of jewelry.</Desc>
+    <Icon>Jeweler</Icon>
+    <Background>Default</Background>
+</AchievementDataXml>

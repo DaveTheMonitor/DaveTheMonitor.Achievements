@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AchievementDataXml>
+    <Id>Wise</Id>
+    <Name>Wise</Name>
+    <Desc>Find a Wisdom Scroll.</Desc>
+    <Icon>Wise</Icon>
+    <Background>Default</Background>
+    <GameMode>DigDeep</GameMode>
+</AchievementDataXml>

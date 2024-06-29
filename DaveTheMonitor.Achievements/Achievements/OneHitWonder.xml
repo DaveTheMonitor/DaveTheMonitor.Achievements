@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AchievementDataXml>
+    <Id>OneHitWonder</Id>
+    <Name>One Hit Wonder</Name>
+    <Desc>Obtain a Sledge Hammer.</Desc>
+    <Icon>OneHitWonder</Icon>
+    <Background>Gold</Background>
+</AchievementDataXml>

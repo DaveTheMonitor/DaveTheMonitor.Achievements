@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AchievementDataXml>
+    <Id>DemolitionExpert</Id>
+    <Name>Demolition Expert</Name>
+    <Desc>Obtain TNT or C4.</Desc>
+    <Icon>DemolitionExpert</Icon>
+    <Background>Default</Background>
+</AchievementDataXml>

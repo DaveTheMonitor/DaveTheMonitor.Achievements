@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AchievementDataXml>
+    <Id>Farmer</Id>
+    <Name>Farmer</Name>
+    <Desc>Plant 5 crops.</Desc>
+    <Icon>Farmer</Icon>
+    <Background>Default</Background>
+</AchievementDataXml>

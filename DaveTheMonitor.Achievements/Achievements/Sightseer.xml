@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AchievementDataXml>
+    <Id>Sightseer</Id>
+    <Name>Sightseer</Name>
+    <Desc>Use a pair of Binoculars.</Desc>
+    <Icon>Sightseer</Icon>
+    <Background>Default</Background>
+</AchievementDataXml>

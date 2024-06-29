@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AchievementDataXml>
+    <Id>Exterminator</Id>
+    <Name>Exterminator</Name>
+    <Desc>Destroy a Spider Egg.</Desc>
+    <Icon>Exterminator</Icon>
+    <Background>Default</Background>
+</AchievementDataXml>

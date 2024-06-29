@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AchievementDataXml>
+    <Id>RockBottom</Id>
+    <Name>Rock Bottom</Name>
+    <Desc>Reach the bottom of the world.</Desc>
+    <Icon>RockBottom</Icon>
+    <Background>Gold</Background>
+</AchievementDataXml>
